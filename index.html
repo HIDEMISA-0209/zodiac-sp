@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/s-aries.svg" type="image/png" alt="アイコン">
+    <title>12星座課題SP</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zen+Dots&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="./js/script.js"></script>
+</head>
+
+
+<body>
+    <div id="wrapper" class="wrapper">
+
+
+        <div id="overlay" class="overlay"></div>
+        <div class="grid-bg"></div>
+
+
+        <header>
+            <div class="inner">
+                <button id="menu-btn" class="menubtn"> <!-- 3本線はCSSで作るから一旦spanで！ -->
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+
+
+        <nav id="info" class="info">
+            <div class="inner">
+                <ul>
+                    <li><a href="#top">TOP</a></li>
+                    <li><a href="#concept">CONCEPT</a></li>
+                    <li><a href="#product">PRODUCT</a></li>
+                    <li><a href="#stickers">STICKERS</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <!-- js後の星座カード -->
+        <div id="scards" class="s-cards">
+            <div class="inner">
+                <div id="cardaries" class="s-card">
+                    <img src="./img/s-aries.svg" alt="牡羊座の画像">
+                    <h5>
+                        牡羊座
+                        <small>ARISE</small>
+                    </h5>
+                    <span>はじまりをつかさどる星座。</span>
+                    <span>小さな勇気と、まっすぐな気持ちを</span>
+                    <span>そっと胸に秘めています。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardtaurus" class="s-card">
+                    <img src="./img/s-taurus.svg" alt="牡牛座の画像">
+                    <h5>
+                        牡牛座
+                        <small>TAURUS</small>
+                    </h5>
+                    <span>安定と継続を大切にする星座。</span>
+                    <span>ゆっくりでも、確実に前へ進みます。</span>
+                    <span>自分のペースを崩さない強さがあります。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardgemini" class="s-card">
+                    <img src="./img/s-gemini.svg" alt="双子座の画像">
+                    <h5>
+                        双子座
+                        <small>GEMINI</small>
+                    </h5>
+                    <span>言葉と好奇心を司る星座。</span>
+                    <span>新しい情報を素早くつかみ、</span>
+                    <span>軽やかに人とつながっていきます。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardcancer" class="s-card">
+                    <img src="./img/s-cancer.svg" alt="蟹座の画像">
+                    <h5>
+                        蟹座
+                        <small>CANCER</small>
+                    </h5>
+                    <span>感情とつながりを大切にする星座。</span>
+                    <span>身近な人を守ろうとする気持ちが強く、</span>
+                    <span>安心できる居場所をつくるのが得意です。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardleo" class="s-card">
+                    <img src="./img/s-leo.svg" alt="獅子座の画像">
+                    <h5>
+                        獅子座
+                        <small>LEO</small>
+                    </h5>
+                    <span>自己表現と自信を象徴する星座。</span>
+                    <span>自然と人の目を引き、</span>
+                    <span>場の空気を明るくする存在です。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardvirgo" class="s-card">
+                    <img src="./img/s-virgo.svg" alt="乙女座の画像">
+                    <h5>
+                        乙女座
+                        <small>VIRGO</small>
+                    </h5>
+                    <span>分析と調整を得意とする星座。</span>
+                    <span>細かなところによく気がつき、</span>
+                    <span>物事を整える力を持っています。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardlibra" class="s-card">
+                    <img src="./img/s-libra.svg" alt="天秤座の画像">
+                    <h5>
+                        天秤座
+                        <small>LIBRA</small>
+                    </h5>
+                    <span>バランスと調和を司る星座。</span>
+                    <span>人と人の間に立ち、</span>
+                    <span>穏やかな関係を築こうとします。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardscorpio" class="s-card">
+                    <img src="./img/s-scorpio.svg" alt="蠍座の画像">
+                    <h5>
+                        蠍座
+                        <small>SCORPIO</small>
+                    </h5>
+                    <span>深さと集中力を持つ星座。</span>
+                    <span>一つのことに強く向き合い、</span>
+                    <span>簡単には揺るがない意志を秘めています。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardsagittarius" class="s-card">
+                    <img src="./img/s-sagittarius.svg" alt="射手座の画像">
+                    <h5>
+                        射手座
+                        <small>SAGITTARIUS</small>
+                    </h5>
+                    <span>探究心と自由を象徴する星座。</span>
+                    <span>まだ知らない世界へ目を向け、</span>
+                    <span>経験を通して成長していきます。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardcapricorn" class="s-card">
+                    <img src="./img/s-capricorn.svg" alt="山羊座の画像">
+                    <h5>
+                        山羊座
+                        <small>CAPRICORN</small>
+                    </h5>
+                    <span>責任感と努力を大切にする星座。</span>
+                    <span>目標に向かって着実に進み、</span>
+                    <span>時間をかけて信頼を積み重ねます。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardaquarius" class="s-card">
+                    <img src="./img/s-aquarius.svg" alt="水瓶座の画像">
+                    <h5>
+                        水瓶座
+                        <small>AQUARIUS</small>
+                    </h5>
+                    <span>発想と個性を持つ星座。</span>
+                    <span>常識にとらわれず、</span>
+                    <span>新しい考え方を取り入れるのが得意です。</span>
+                    <button>戻る</button>
+                </div>
+
+
+                <div id="cardpisces" class="s-card">
+                    <img src="./img/s-pisces.svg" alt="魚座の画像">
+                    <h5>
+                        魚座
+                        <small>PISCES</small>
+                    </h5>
+                    <span>感受性と想像力を司る星座。</span>
+                    <span>周囲の気持ちを自然と感じ取り、</span>
+                    <span>やさしく寄り添うことができます。</span>
+                    <button>戻る</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- js後の購入ボタン -->
+        <div id="pbtn" class="p-btn">
+            <div class="p-inner">
+                <p>まだ存在してないから買えないよ〜ん</p>
+                <button>戻る</button>
+            </div>
+        </div>
+
+
+
+        <!-- js後のフッターのsns -->
+        <div id="fsns" class="f-sns">
+            <div class="f-inner">
+                <p>公式アカウントはまだないよ〜ん</p>
+                <button>戻る</button>
+            </div>
+        </div>
+
+
+
+        <section id="top">
+            <div class="inner">
+                <h1>
+                    <img src="./img/t-logo.svg" alt="12星座シールコレクション">
+                </h1>
+
+                <div id="mv">
+                    <div class="mv-inner">
+                        <ul id="mv-1" class="mv-list">
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock2.svg" alt="シールの単品モックアップ画像"></li>
+
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock2.svg" alt="シールの単品モックアップ画像"></li>
+                        </ul>
+
+                        <ul id="mv-2" class="mv-list">
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock2.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock2.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                            <li><img src="./img/t-mock1.svg" alt="シールの単品モックアップ画像"></li>
+                        </ul>
+                    </div>
+                </div>
+        </section>
+
+
+
+        <section id="concept">
+            <div class="inner">
+                <h2>
+                    <span>CONCEPT</span>
+                    <small>12星座シールコレクションとは？</small>
+                </h2>
+
+                <div class="c-txt">
+                    <span>12星座のきらめきを、<br>ゆめかわで可愛い世界観にまとめた<br>小さなコレクションです。</span>
+                    <span>小さい頃に感じた“かわいい”を詰め込み、<br>紫とピンクを基調にしたキラキラで<br>心がときめくデザインになりました。</span>
+                    <span>見た瞬間にふわっと明るくなるような、<br>やさしくて可愛い世界をお届けします。</span>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="product">
+            <div class="inner">
+                <h2>
+                    <span>PRODUCT</span>
+                    <small>商品紹介</small>
+                </h2>
+
+                <div class="p-imginfo">
+                    <div class="p-img">
+                        <img src="./img/p-package.svg" alt="パッケージの画像">
+                    </div>
+
+                    <div class="p-info">
+                        <h3>
+                            12星座
+                            <span>シールコレクション</span>
+                            <small>ZODIAC SIGN SEAL COLLECTION</small>
+                        </h3>
+
+                        <p>税込価格<span>100</span>円</p>
+                        <button>シールを購入する</button>
+
+                        <ul class="p-list">
+                            <li>
+                                販売時期
+                                <span>2025年12月</span>
+                            </li>
+                            <li>
+                                対象年齢
+                                <span>3才以上</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="stickers">
+            <div class="inner">
+                <h2>
+                    <span>STICKERS</span>
+                    <small>シール紹介</small>
+                </h2>
+
+
+                <ul class="s-list">
+                    <li data-sign="aries">
+                        <img src="./img/s-aries.svg" alt="牡羊座の画像">
+                        <button>牡羊座</button>
+                    </li>
+
+                    <li data-sign="taurus">
+                        <img src="./img/s-taurus.svg" alt="牡牛座の画像">
+                        <button>牡牛座</button>
+                    </li>
+
+                    <li data-sign="gemini">
+                        <img src="./img/s-gemini.svg" alt="双子座の画像">
+                        <button>双子座</button>
+                    </li>
+
+                    <li data-sign="cancer">
+                        <img src="./img/s-cancer.svg" alt="蟹座の画像">
+                        <button>蟹座</button>
+                    </li>
+
+                    <li data-sign="leo">
+                        <img src="./img/s-leo.svg" alt="獅子座の画像">
+                        <button>獅子座</button>
+                    </li>
+
+                    <li data-sign="virgo">
+                        <img src="./img/s-virgo.svg" alt="乙女座の画像">
+                        <button>乙女座</button>
+                    </li>
+
+                    <li data-sign="libra">
+                        <img src="./img/s-libra.svg" alt="天秤座の画像">
+                        <button>天秤座</button>
+                    </li>
+
+                    <li data-sign="scorpio">
+                        <img src="./img/s-scorpio.svg" alt="蠍座の画像">
+                        <button>蠍座</button>
+                    </li>
+
+                    <li data-sign="sagittarius">
+                        <img src="./img/s-sagittarius.svg" alt="射手座の画像">
+                        <button>射手座</button>
+                    </li>
+
+                    <li data-sign="capricorn">
+                        <img src="./img/s-capricorn.svg" alt="山羊座の画像">
+                        <button>山羊座</button>
+                    </li>
+
+                    <li data-sign="aquarius">
+                        <img src="./img/s-aquarius.svg" alt="水瓶座の画像">
+                        <button>水瓶座</button>
+                    </li>
+
+                    <li data-sign="pisces">
+                        <img src="./img/s-pisces.svg" alt="魚座の画像">
+                        <button>魚座</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <section id="faq">
+            <div class="inner">
+                <h2>
+                    <span>FAQ</span>
+                    <small>よくある質問</small>
+                </h2>
+
+
+                <div class="faq-box">
+                    <dl>
+                        <dt class="js-faq"> <!-- jsで色々やる用 -->
+                            <h4>絵柄は選べますか？</h4>
+                            <button class="crossbar"></button> <!-- 動く＋のボタン（これもCSSで作る！） -->
+                        </dt>
+
+                        <dd class="faq-answer">
+                            <p class="answer-txt">本商品はランダム仕様のため、絵柄をお選びいただくことはできません。</p>
+                        </dd>
+                    </dl>
+                </div>
+
+
+                <div class="faq-box">
+                    <dl>
+                        <dt class="js-faq">
+                            <h4>シールのサイズはどのくらいですか？</h4>
+                            <button class="crossbar"></button>
+                        </dt>
+
+                        <dd class="faq-answer">
+                            <p class="answer-txt">手のひらサイズです。</p>
+                        </dd>
+                    </dl>
+                </div>
+
+
+                <div class="faq-box">
+                    <dl>
+                        <dt class="js-faq">
+                            <h4>シールは何枚入っていますか？</h4>
+                            <button class="crossbar"></button>
+                        </dt>
+
+                        <dd class="faq-answer">
+                            <p class="answer-txt">1袋につき1枚入っています。</p>
+                        </dd>
+                    </dl>
+                </div>
+
+
+                <div class="faq-box">
+                    <dl>
+                        <dt class="js-faq">
+                            <h4>透け感はありますか？</h4>
+                            <button class="crossbar"></button>
+                        </dt>
+
+                        <dd class="faq-answer">
+                            <p class="answer-txt">透け感はあまりないと思われますが、個体差はあります。</p>
+                        </dd>
+                    </dl>
+                </div>
+
+
+                <div class="faq-box">
+                    <dl>
+                        <dt class="js-faq">
+                            <h4>シールははがしやすいですか？</h4>
+                            <button class="crossbar"></button>
+                        </dt>
+
+                        <dd class="faq-answer">
+                            <p class="answer-txt">粘着力はありますが、比較的剥がしやすいかと思われます。</p>
+                        </dd>
+                    </dl>
+                </div>
+
+
+                <div class="faq-box">
+                    <dl>
+                        <dt class="js-faq">
+                            <h4>大人でも楽しめますか？</h4>
+                            <button class="crossbar"></button>
+                        </dt>
+
+                        <dd class="faq-answer">
+                            <p class="answer-txt">もちろん楽しめます！<br>是非コレクションしてみてください</p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer>
+            <div class="inner">
+                <h3>
+                    <img src="./img/f-logo.svg" alt="12星座シールコレクション">
+                </h3>
+
+                <ul class="sns">
+                    <li><button><img src="./img/f-twitter.svg" alt="twitter"></button></li>
+                    <li><button><img src="./img/f-instagram.svg" alt="instagram"></button></li>
+                    <li><button><img src="./img/f-line.svg" alt="line"></button></li>
+                    <li><button><img src="./img/f-facebook.svg" alt="facebook"></button></li>
+                </ul>
+
+                <p class="copyright">© 2025 ZODIAC SIGN SEAL COLLECTION by Misaki</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1034 @@
+
+
+
+
+
+/* 共通 */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+    max-width: 390px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding-bottom: 60px;
+}
+
+.inner {
+    max-width: 390px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+section {
+    margin: 0px 0px 80px 0px;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 600;
+    margin-bottom: 46px;
+}
+
+h2 span {
+    display: block;
+    font-size: 28px;
+}
+
+h2 small {
+    display: block;
+    font-size: 14px;
+    margin-top: -4px;
+}
+
+button {  /* 初期ボタンの見た目リセット */
+	background: none;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.wrapper > section .inner > *:not(.mv) {  /* 背景のグリッドが被らないように他の要素を前に持ってきてる！ */
+    position: relative;
+    z-index: 4;
+}
+
+
+
+
+
+/* 背景(PCで見たときの余白)可愛くしたいよ〜ん…になったのでグラデを投入！ */
+body {
+    background: linear-gradient(120deg,
+            #ffdcf0,
+            #dfdeff,
+            #f7d1df,
+            #c9ecff);
+    background-size: 300% 300%;
+    animation: gradient-move 8s ease infinite;
+}
+
+@keyframes gradient-move {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+
+
+
+
+/* 動くグリッド部分 */
+.grid-bg {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 390px;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,                 /* 縦線 */
+      transparent,
+      transparent 29px,
+      rgba(255, 255, 255, 0.4) 30px
+    ),
+    repeating-linear-gradient(
+      90deg,                /* 横線 */
+      transparent,
+      transparent 29px,
+      rgba(255, 255, 255, 0.4) 30px
+    );
+  background-size: 30px 30px; /* 格子のサイズ */
+  animation: moveGrid 4s linear infinite;
+}
+
+/* 上下スクロールアニメーション */
+@keyframes moveGrid {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 60px, 0 60px;
+  }
+}
+
+
+
+
+
+/* ヘッダー */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 10;
+}
+
+header .inner {
+    display: flex;
+    height: 100%;
+    margin: 0 auto;
+    align-items: center;
+    background-color: #fff;
+}
+
+
+
+
+
+/* ハンバーガーのボタン */
+#menu-btn span{
+    display: block;
+    position: relative;
+    background-color: #BFB9DC;
+    width: 26px;
+    height: 2px;
+    z-index: 30;
+    margin: 6px 0px 0px 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+#menu-btn.active span:nth-of-type(1) {
+  transform: translateY(8px) rotate(-45deg);
+}
+#menu-btn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+#menu-btn.active span:nth-of-type(3) {
+  transform: translateY(-8px) rotate(45deg);
+}
+
+
+
+
+
+/* ハンバーガー */
+#info {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 390px;
+    overflow: hidden; /* クリッピングマスク的なアレ */
+    pointer-events: none;
+    z-index: 20;
+}
+
+#info ul {
+    transform: translateX(-100%); /* 初期状態は左に隠す */
+    width: 300px;
+    background-color: #fff;
+    height: 100vh;
+    transition: transform 0.3s ease;
+}
+
+#info.active ul {
+    transform: translateX(0); /* 表示 */
+    pointer-events: auto;
+}
+
+#info li a {
+    display: block;
+    width: 100%;
+    color: #BFB9DC;
+    padding: 14px 0 14px 34px;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.2s ease-in-out;
+}
+
+#info li a:hover {
+    color: #fff;
+    background-color: #BFB9DC;
+}
+
+
+
+
+
+/* js後の黒透明なアレ */
+#info .inner{
+    background: rgba(0,0,0,0);
+}
+
+#scards .inner{
+    background: rgba(0,0,0,0);
+}
+
+.overlay {
+    opacity: 0;
+    position: fixed;
+    max-width: 390px;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.4);
+
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+
+
+
+/* トップ */
+#top h1 {
+    position: relative;
+    height: 400px;
+    z-index: 4;
+}
+
+#top h1 img {
+    position: absolute;
+    top: 74%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#top h1::before {
+    position: absolute;
+    content: "";
+    bottom: -30px;
+    left: 16px;
+    width: 50px;
+    height: 62px;
+
+    object-fit: cover;
+    background: url(../img/t-kira1.svg) no-repeat;
+}
+
+#top h1::after {
+    position: absolute;
+    content: "";
+    top: 210px;
+    right: 30px;
+    width: 62px;
+    height: 70px;
+
+    object-fit: cover;
+    background: url(../img/t-kira2.svg) no-repeat;
+}
+
+#top .inner {
+    max-width: 390px;
+    max-height: 584px;
+
+    background: linear-gradient(110deg,
+            #c9c2ec,
+            #fcd6e8
+    );
+    background-size: 100% 200%;
+    animation: gradient-move 5s ease infinite;
+}
+
+@keyframes gradient-move {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+
+
+
+
+/* トップ・メインビジュアル（モックアップ）の部分 */
+#top {
+    height: 584px;
+    overflow: hidden;
+}
+
+#mv{
+    position: relative;
+    display: flex;
+    left: 100px;
+    bottom: 600px;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.mv-inner{
+    display: flex;
+}
+
+#mv-1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: scroll-down 20s linear infinite;
+}
+
+#mv-2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: scroll-up 20s linear infinite;
+    margin-left: -40px;
+}
+
+@keyframes scroll-down {
+    0% {transform: translateY(-50%);}
+    100% {transform: translateY(0%);}
+}
+
+@keyframes scroll-up {
+    0% {transform: translateY(0%);}
+    100% {transform: translateY(-50%);}
+}
+
+
+
+
+
+/* 12星座シールコレクションとは？ */
+#concept h2 {
+    color: #BFB9DC;
+}
+
+.c-txt span {
+    display: block;
+    color: #BFB9DC;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.c-txt{
+    position: relative;
+    padding-bottom: 20px;
+}
+
+#concept h2::after {
+    position: absolute;
+    content: "";
+    top: -50px;
+    right: 10px;
+    width: 130px;
+    height: 140px;
+
+    object-fit: cover;
+    background: url(../img/c-kira1.svg) no-repeat;
+}
+
+.c-txt::after {
+    position: absolute;
+    content: "";
+    bottom: -140px;
+    left: 16px;
+    width: 130px;
+    height: 140px;
+
+    object-fit: cover;
+    background: url(../img/c-kira2.svg) no-repeat;
+}
+
+
+
+
+
+/* 商品紹介 */
+#product h2 {
+    color: #fff;
+}
+
+#product h2::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 30px;
+    width: 62px;
+    height: 60px;
+
+    object-fit: cover;
+    background: url(../img/p-kira1.svg) no-repeat;
+}
+
+#product h2::after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: 30px;
+    width: 62px;
+    height: 60px;
+
+    object-fit: cover;
+    background: url(../img/p-kira2.svg) no-repeat;
+}
+
+#product .inner {
+    padding: 60px 0px 64px 0px;
+    background-color: #CEC8EB;
+}
+
+.p-imginfo{
+    display: flex;
+    align-items: center;
+    padding: 0px 30px 0px 30px;
+    gap: 20px;
+}
+
+.p-img img{
+    box-shadow: 8px 8px 10px 2px rgba(142, 133, 173, 0.44);
+}
+
+.p-info{
+    text-align: left;
+}
+
+.p-info h3{
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.p-info h3 span{
+    display: block;
+    font-size: 18px;
+    letter-spacing: 0px;
+}
+
+.p-info h3 small{
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0px;
+}
+
+.p-info p{
+    color: #fff;
+    font-size: 12px;
+    margin: 20px 0px 4px 0px;
+}
+
+.p-info p span{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0px 4px 0px 4px;
+}
+
+
+.p-info button {
+    color: #BFB9DC;
+    font-size: 12px;
+    font-weight: 500;
+
+    text-align: center;
+    align-items: center; 
+    background-color: #fff;
+    border-radius: 100px;
+    width: 162px; 
+    text-align: center;
+    padding: 8px 0;
+    box-sizing: border-box;  /* border込みで幅を計算してくれてる */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out,color 0.2s ease-in-out;
+}
+
+.p-info button::after{
+    display: inline-block; 
+    content: "";
+    width: 6px;
+    height: 8px;
+    margin-left: 8px;
+    background: url(../img/p-arrow.svg) no-repeat center / cover;
+    margin-right: 2px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.p-info button:hover::after {
+    transform: translateX(4px);
+}
+
+
+.p-list{
+    margin-top: 20px;
+}
+
+.p-list li{
+    color: #fff;
+    font-size: 12px;
+}
+
+.p-list li span{
+    margin-left: 6px;
+}
+
+.p-list li::before{
+    display: inline-block; 
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: url(../img/p-icon.svg) no-repeat center / cover;
+    margin-right: 2px;
+    vertical-align: middle;
+}
+
+
+
+
+
+/* 商品紹介・js後の購入ボタン */
+.p-btn {
+    position: fixed;
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 20;
+}
+
+.p-btn.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.p-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: #fff;
+    border-radius: 30px;
+    margin: 30px;
+    padding: 30px;
+}
+
+.p-btn p{
+    color: #BFB9DC;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.p-btn button{
+    display: inline-flex;   
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 20px;
+
+    color: #fff;
+    font-size: 14px;
+    padding: 4px 20px 4px 38px;
+    background-color: #BFB9DC;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.p-btn button::after{
+    display: inline-block; 
+    content: "";
+    width: 6px;
+    height: 10px;
+    margin-left: 20px;
+    background: url(../img/s-arrow.svg) no-repeat center / cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+.p-btn button:hover::after {
+    transform: translateX(4px);
+}
+
+.p-btn button:hover {
+    opacity: 0.7;
+}
+
+
+
+
+
+/* シール紹介 */
+#stickers h2 {
+    color: #BFB9DC;
+}
+
+#stickers h2::before {
+    position: absolute;
+    content: "";
+    top: -40px;
+    left: 30px;
+    width: 50px;
+    height: 110px;
+
+    object-fit: cover;
+    background: url(../img/s-kira1.svg) no-repeat;
+}
+
+#stickers h2::after {
+    position: absolute;
+    content: "";
+    top: -60px;
+    right: 30px;
+    width: 50px;
+    height: 140px;
+
+    object-fit: cover;
+    background: url(../img/s-kira2.svg) no-repeat;
+}
+
+.s-list{
+    list-style: none;
+    display: grid;  /* フレックスよりgridのが良いかもしれんので！ */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 0px 30px 0px 30px;
+}
+
+.s-list li{
+    padding-bottom: 50px;
+}
+
+.s-list li:last-child {
+    padding-bottom: 0;
+}
+
+.s-list button {
+    color: #BFB9DC;
+    font-size: 12px;
+    font-weight: 500;
+
+    text-align: center;
+    border: #BFB9DC solid 1.6px;
+    border-radius: 100px;
+    width: 86px; 
+    text-align: center;
+    padding: 2px 0;
+    box-sizing: border-box;
+    margin-top: 12px;
+
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.s-list button:hover {
+    color: #fff;
+    background-color: #BFB9DC;
+    border-radius: 100px;
+}
+
+
+
+
+
+/* シール紹介・js後のカード */
+.s-cards {
+    position: fixed;
+    display: flex;
+    inset: 0; /* top:0 left:0 right:0 bottom:0って意味らしい！ */
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 20;
+}
+
+.s-cards.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.s-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: #fff;
+    border-radius: 30px;
+    width: 330px;
+    height: 362px;
+    margin: 0px 30px 0px 30px;
+    padding-top: 30px;
+}
+
+.s-card {
+  display: none;
+}
+
+.s-card.active {
+  display: block;
+}
+
+.s-card img{
+    width: 96px;
+    height: 96px;
+}
+
+.s-card h5{
+    color: #BFB9DC;
+    font-size: 20px;
+    margin: 20px 0px 20px 0px;
+}
+
+.s-card h5 small{
+    display: block;
+    color: #E8BED8;
+    font-size: 8px;
+}
+
+.s-card span{
+    display: block;
+    color: #BFB9DC;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.s-card button{
+    display: inline-flex;   
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 20px;
+
+    color: #fff;
+    font-size: 14px;
+    padding: 4px 20px 4px 38px;
+    background-color: #BFB9DC;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.s-card button::after{
+    display: inline-block; 
+    content: "";
+    width: 6px;
+    height: 10px;
+    margin-left: 20px;
+    background: url(../img/s-arrow.svg) no-repeat center / cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+.s-card button:hover::after {
+    transform: translateX(4px);
+}
+
+.s-card button:hover {
+    opacity: 0.7;
+}
+
+
+
+
+
+/* よくある質問 */
+#faq h2 {
+    color: #fff;
+}
+
+#faq h2::before {
+    position: absolute;
+    content: "";
+    bottom: 0px;
+    left: 40px;
+    width: 60px;
+    height: 45px;
+
+    object-fit: cover;
+    background: url(../img/faq-kira1.svg) no-repeat;
+}
+
+#faq h2::after {
+    position: absolute;
+    content: "";
+    bottom: 0px;
+    right: 40px;
+    width: 65px;
+    height: 55px;
+
+    object-fit: cover;
+    background: url(../img/faq-kira2.svg) no-repeat;
+}
+
+#faq .inner {
+    position: relative;
+    padding: 60px 0px 64px 0px;
+    background-color: #EDCBE0;
+}
+
+/* #faq .inner::after {  なんか無い方がいいかも…
+    position: absolute;
+    content: "";
+    bottom: 10px;
+    right: 10px;
+    width: 370px;
+    height: 300px;
+
+    object-fit: cover;
+    background: url(../img/faq-kira3.svg) no-repeat;
+} */
+
+.faq-box h4 {
+    color: #BFB9DC;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.faq-box dl {
+  background-color: #fff;
+  border-radius: 25px;
+  margin: 0px 30px 16px 30px;
+  overflow: hidden;
+}
+
+.faq-box dl dt {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 14px 20px 14px 20px;
+    border-radius: 25px;
+}
+
+.faq-box dl dd{
+    position: relative;
+    text-align: left;
+    color: #BFB9DC;
+    font-size: 12px;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0px 20px 0px 20px;
+    transition: max-height 0.4s ease, padding 0.2s ease-in-out;
+}
+
+.faq-box dl dd.faq-open {
+    max-height: 200px;
+    padding: 6px 20px 16px 20px;
+}
+
+
+
+
+
+/* よくある質問・クロスバー/js後のアニメーション */
+.faq-box dl dt .crossbar {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    top: 50%;
+    right: 20px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.faq-box dl dt .crossbar::before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 1.6px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background-color: #BFB9DC;
+    transform-origin: center center;
+    transform: translateX(-50%) rotate(0deg);
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.faq-box dl dt .crossbar::after {
+    position: absolute;
+    display: inline-block;
+    content: "";
+    width: 100%;
+    height: 1.6px;
+    top: 50%;
+    left: 0;
+    background-color: #BFB9DC;
+    transform: translateY(-50%);
+}
+
+.faq-box dl dt.faq-open .crossbar::before {
+    transform: translateX(-50%) rotate(90deg);  /* js後の回転部分 */
+}
+
+
+
+
+
+/* フッター */
+footer{
+    text-align: center;
+}
+
+footer ul{
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    margin-bottom: 12px;
+}
+
+footer li{
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.2s ease-in-out;
+}
+
+footer li:hover{
+    opacity: 0.7;
+}
+
+footer button{
+    cursor: pointer;
+}
+
+.copyright{
+    color: #BFB9DC;
+    font-size: 8px;
+}
+
+
+
+
+
+/* フッター・js後のボタンの中身 */
+.f-sns {
+    position: fixed;
+    display: flex;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 20;
+}
+
+.f-sns.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.f-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: #fff;
+    border-radius: 30px;
+    margin: 30px;
+    padding: 30px;
+}
+
+.f-sns p{
+    color: #BFB9DC;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.f-sns button{
+    display: inline-flex;   
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 20px;
+
+    color: #fff;
+    font-size: 14px;
+    padding: 4px 20px 4px 38px;
+    background-color: #BFB9DC;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.f-sns button::after{
+    display: inline-block; 
+    content: "";
+    width: 6px;
+    height: 10px;
+    margin-left: 20px;
+    background: url(../img/s-arrow.svg) no-repeat center / cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+.f-sns button:hover::after {
+    transform: translateX(4px);
+}
+
+.f-sns button:hover {
+    opacity: 0.7;
+}
