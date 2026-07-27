@@ -329,6 +329,11 @@ header .inner {
     display: flex;
 }
 
+.mv-list img{
+	width: 200px;
+    height: 200px;
+}
+
 #mv-1 {
     position: relative;
     display: flex;
