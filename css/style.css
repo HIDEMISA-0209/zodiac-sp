@@ -329,7 +329,7 @@ header .inner {
     display: flex;
 }
 
-.mv-list img{
+.mv-list li img{
 	width: 200px;
     height: 200px;
 }
